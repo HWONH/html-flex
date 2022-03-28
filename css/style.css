@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* flex-direction: row; / flex-wrap: nowrap; / justify-content: space-between; 혹은 justify-content: space-around; 다음 3가지를 주로 같이 사용한다 */
+
+#flex_direction{}
+#flex_direction .container{display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-around;width: 600px;height: 300px;background: #bbbbbb;}
+#flex_direction .container .flex_item{width: 100px;height: 120px;}
+#flex_direction .container .flex_item:nth-child(1){background: #ffaaff;}
+#flex_direction .container .flex_item:nth-child(2){background: #aaaaff;}
+#flex_direction .container .flex_item:nth-child(3){background: #ffffaa;}
+#flex_direction .container .flex_item:nth-child(4){background: #aaffaa;}
+/* 
+선언 시, 자식 요소의 방향을 결정
+자식의 가로 또는 세로값의 합이 부모의 영역보다 클 경우, 자식의 가로 또는 세로값은 부모의 영역에 맞추어 재조정된다
+flex-direction: row;            기본값;자식요소를 가로 정방향(좌측부터)으로 배치
+flex-direction: row-reverse;    자식요소를 가로 역방향(우측부터)으로 배치(가로 공간에 여유가 있을 시, 우측으로 붙는다)
+flex-direction: column;         자식요소를 세로 정방향(상단부터)으로 배치
+flex-direction: column-reverse; 자식요소를 세로 역방향(하단부터)으로 배치(세로 공간에 여유가 있을 시, 하단으로 붙는다)
+*/
+
+/* 
+선언 시, 자식 요소의 수평방향 공간을 결정(공간 할당)
+flex-wrap: nowrap;          부모의 가로 영역보다 자식의 가로값의 합이 크더라도, 복수의 라인을 구성하지 않는다;자식의 가로값의 합이 클 경우, 자식의 가로 너비를 동일하게 자동조정
+flex-wrap: wrap;            부모의 가로 영역과는 상관없이, 자식의 가로 너비 적용(복수 라인 구성);자식의 가로폭이 클 경우, 다음 줄로 내린다
+flex-wrap: wrap-reverse;    좌측 하단으로부터 세로방향 역순으로 자식들을 배치
+*/
+
+/* 
+선언 시, 자식 요소의 수평방향 정렬을 결정, align-items와 상대 개념
+justify-content: flex-start;    기본값;부모영역을 가로기준으로 좌측 정렬
+justify-content: flex-end;      부모영역의 가로기준으로 우측 정렬
+justify-content: center;        부모영역의 가로기준으로 중앙 정렬
+justify-content: space-between; 부모영역의 가로기준으로 펼침 정렬(부모 영역의 좌우측 끝선을 기준으로 배치)
+justify-content: space-around;  각 자식박스를 기준으로 좌우측의 여유공간을 균등하게 나누어서 정렬(좌우측 마진값이 동일)
+ */
+
+#alian_items{}
+#alian_items .container{display: flex;flex-direction: row;flex-wrap: wrap;align-items: stretch;width: 600px;height: 300px;background: #dddddd;}
+#alian_items .container .flex_item{width: 120px;}
+#alian_items .container .flex_item:nth-child(1){background: #ffaaff;height: 120px;font-size: 32px;}
+#alian_items .container .flex_item:nth-child(2){background: #aaaaff;height: 100px;font-size: 14px;}
+#alian_items .container .flex_item:nth-child(3){background: #ffffaa;height: 180px;font-size: 17px;}
+#alian_items .container .flex_item:nth-child(4){background: #aaffaa;height: 160px;font-size: 28px;}
+#alian_items .container .flex_item:nth-child(5){background: #aaffff;height: 140px;font-size: 42px;}
+/* 
+선언 시, 자식 요소의 수직방향 정렬을 결정(vertical-alian과 유사), justify-content와 상대 개념
+align-items: flex-start;    부모영역의 세로기준으로 상단 정렬
+align-items: flex-end;      부모영역의 세로기준으로 하단 정렬
+align-items: center;        부모영역의 세로기준으로 중앙 정렬
+align-items: baseline;      내부 글자 또는 내부 콘텐츠 기준으로 하단 정렬
+align-items: stretch;       기본값;부모영역의 세로기준으로 위아래 공간 모두 사용(자식 요소에 높이 값을 선언하지 않은 선제 조건 하에 사용 가능)
+***align-items: stretch; vs align-content: stretch;?***
+*/
+
+#alian_content{}
+#alian_content .container{display: flex;flex-direction: row;flex-wrap: wrap;align-content: flex-start;width: 600px;height: 300px;background: #bbbbbb;}
+#alian_content .container .flex_item{width: 180px;height: 100px;}
+#alian_content .container .flex_item:nth-child(1){background: #ffaaff;}
+#alian_content .container .flex_item:nth-child(2){background: #aaaaff;}
+#alian_content .container .flex_item:nth-child(3){background: #ffffaa;}
+#alian_content .container .flex_item:nth-child(4){background: #aaffaa;}
+#alian_content .container .flex_item:nth-child(5){background: #aaffff;}
+/* 
+선언 시, 자식 요소의 수직방향 공간을 결정(공간 할당)
+align-content: flex-start;      부모영역 기준으로 내부 박스들을 상단 배치
+align-content: flex-end;        부모영역 기준으로 내부 박스들을 하단 배치
+align-content: center;          부모영역 기준으로 내부 박스들을 중앙 배치
+align-content: space-between;   부모영역의 세로기준으로 펼침 정렬(부모 영역의 상하측 끝선을 기준으로 배치)
+align-content: space-around;    각 자식박스를 기준으로 상하측의 여유공간을 균등하게 나누어서 정렬(상하측 마진값이 동일)
+align-content: stretch;         부모영역의 세로기준으로 위아래 공간 모두 사용(자식 요소에 높이 값을 선언하지 않은 선제 조건 하에 사용 가능)
+*/
