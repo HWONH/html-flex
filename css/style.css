@@ -68,3 +68,33 @@ align-content: space-between;   부모영역의 세로기준으로 펼침 정렬
 align-content: space-around;    각 자식박스를 기준으로 상하측의 여유공간을 균등하게 나누어서 정렬(상하측 마진값이 동일)
 align-content: stretch;         부모영역의 세로기준으로 위아래 공간 모두 사용(자식 요소에 높이 값을 선언하지 않은 선제 조건 하에 사용 가능)
 */
+
+#flex_grow{}
+#flex_grow .container{display: flex;flex-direction: row;flex-wrap: nowrap;align-content: stretch;height: 300px;background: #cccccc;}
+#flex_grow .container .flex_item{}
+#flex_grow .container .flex_item:nth-child(1){background: #ffaaff;flex-grow: 1;}
+#flex_grow .container .flex_item:nth-child(2){background: #aaaaff;flex-grow: 3;}
+#flex_grow .container .flex_item:nth-child(3){background: #ffffaa;flex-grow: 1;}
+#flex_grow .container .flex_item:nth-child(4){background: #aaffaa;flex-grow: 2;}
+#flex_grow .container .flex_item:nth-child(5){background: #aaffff;flex-grow: 1;}
+
+#flex_shrink{}
+#flex_shrink .container{display: flex;flex-direction: row;flex-wrap: nowrap;align-content: stretch;width: 800px;height: 300px;margin: 0 auto;background: #cccccc;}
+#flex_shrink .container .flex_item{width: 400px;}
+#flex_shrink .container .flex_item:nth-child(1){background: #ffaaff;flex-shrink: 1;}
+#flex_shrink .container .flex_item:nth-child(2){background: #aaaaff;flex-shrink: 2;}
+#flex_shrink .container .flex_item:nth-child(3){background: #ffffaa;flex-shrink: 0;}
+#flex_shrink .container .flex_item:nth-child(4){background: #aaffaa;flex-shrink: 2;}
+#flex_shrink .container .flex_item:nth-child(5){background: #aaffff;flex-shrink: 1;}
+/* 
+flex-shrink: 0;     본인 고유의 가로값;(비율로 축소되는 값이 아님)
+*/
+
+#order{}
+#order .container{display: flex;flex-direction: column;flex-wrap: nowrap;align-content: stretch;width: 800px;height: 300px;margin: 0 auto;background: #cccccc;}
+#order .container .flex_item{}
+#order .container .flex_item:nth-child(1){background: #ffaaff;flex-grow: 1;order: 3;}
+#order .container .flex_item:nth-child(2){background: #aaaaff;flex-grow: 3;order: 5;}
+#order .container .flex_item:nth-child(3){background: #ffffaa;flex-grow: 1;order: 4;}
+#order .container .flex_item:nth-child(4){background: #aaffaa;flex-grow: 2;order: 1;}
+#order .container .flex_item:nth-child(5){background: #aaffff;flex-grow: 1;order: 2;}
